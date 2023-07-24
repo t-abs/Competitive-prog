@@ -1,0 +1,20 @@
+#include<climits>
+bool BST(BinaryTreeNode<int>* root, int min,int max){
+    //corner case
+    if(root==NULL){
+        return true;
+    }
+//recursively call check
+   if(root->data>=min && root->data<=max) {
+    bool left=BST(root->left,min,root->data);
+    bool right=BST(root->right,root->data,max);
+
+        return left && right;
+    }
+    else
+    return false;
+   }
+
+bool isBST(BinaryTreeNode<int> *root) {
+  return BST(root, INT_MIN, INT_MAX);
+}
