@@ -1,0 +1,18 @@
+//Approach-Find the lowest common ancestor of node.So call left tree and right tree separately return then
+
+TreeNode<int>* LCAinaBST(TreeNode<int>* root, TreeNode<int>* P, TreeNode<int>* Q){
+//base case
+if(root==NULL){
+return NULL;
+}
+while(root!=NULL){
+
+if(root->node<P->data && root->data<Q->data)
+return LCAinaBST(root->right,P,Q);
+else if(rooot->data>P->data && root->data>Q->data)
+return LCAinaBST(root->left,P,Q);
+else{
+return root;
+}
+}
+}
