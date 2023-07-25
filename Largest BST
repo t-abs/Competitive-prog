@@ -1,0 +1,35 @@
+//Check whether the tree is BST or not
+
+bool BST(BinaryTreeNode<int>* root, int min,int max){
+    //corner case
+    if(root==NULL){
+        return true;
+    }
+//recursively call check
+   if(root->data>=min && root->data<=max) {
+    bool left=BST(root->left,min,root->data);
+    bool right=BST(root->right,root->data,max);
+
+        return left && right;
+    }
+    else
+    return false;
+   }
+int size(BinaryTreeNode<int>* root){
+if(size==NULL){
+return 0;
+}
+return size(root->left)+size(root->right)+1;
+}
+int largestBST(TreeNode<int>* root)
+{
+	// Current Subtree is BST.
+	if (BST(root, INT_MIN, INT_MAX) == true)
+	{
+		return size(root);
+	}
+	
+	// Find largest BST in left and right subtrees.
+	return max(BST(root -> left), BST(root -> right));
+}
+
