@@ -1,0 +1,27 @@
+//3 step Algo (reverse algo from stack queue vice versa)
+queue<int> reverseElements(queue<int> q, int k)
+{
+    stack<int> s;
+    //fetch k elements from queue to sack
+    for(int i=0;i<k;i++){
+        int data=q.front();
+        q.pop();
+        s.push(data);
+    }
+    //fetch stack elements to queue
+    while(!s.empty()){
+        int data=s.top();
+        s.pop();
+        q.push(data);
+    }
+
+    //remaining n-k elements
+    int t=q.size()-k;
+    while(t--){
+        int data=q.front();
+        q.pop();
+        q.push(data);
+
+    }
+    return q;
+}
