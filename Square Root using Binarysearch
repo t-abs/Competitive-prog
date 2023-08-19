@@ -1,0 +1,30 @@
+Algo-
+1.First make an array from 0 to N (root N)
+2. Find the mid and store ans in an array
+3.Compare mid*mid with the number and shift start and end positions accordingly
+
+ long long int binary search(int n){
+      int s=0;
+      int e=n;
+      long long int mid=s+(e-s)/2;
+      long long int ans=-1;
+      long long int square=mid*mid;
+     if(ans==mid){
+         return mid;
+         
+     }if(square < n ){
+         ans=mid;
+         s=mid+1;
+     }else{
+         e=mid-1;
+     }
+     return ans;
+     }
+}
+
+  
+    long long int floorSqrt(long long int x) 
+    {
+    return binarysearch(n);
+    }
+    
