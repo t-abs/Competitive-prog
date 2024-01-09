@@ -1,0 +1,22 @@
+Algo-
+1.First find (P/W) ratio of all
+2.Sort them in descending order
+3.Apply condition if weight<max capacity then profit will be adding all else subtract them and go ahead
+
+
+double fractionalKnapsack(int W, struct Item arr[], int N)
+{
+double finalprofit=0.0
+for(int i=0;i<n;i++){
+if(arr[i].weight<=W){
+W-=arr[i].weight;
+finalprofit+=arr[i].profit;
+}
+}
+else{
+finalprofit += arr[i].profit*((double)W/(double)(arr[i].weight);
+}
+}
+return finalprofit;
+}
+
