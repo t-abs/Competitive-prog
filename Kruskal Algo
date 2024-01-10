@@ -1,0 +1,46 @@
+Algo-
+1.First maintain a bool comparator for increasing or decreasing function
+2.Sort the weights in increasing
+3.Maintain a parent array to check that a cycle should not exist
+
+
+//maintaining a bool comparator for increasing or decreasing order
+bool compare(Edge e1,Edge e2){
+return e1.weight<e2.weight;
+}
+int findparent(int v,int *parent){
+if(parent[v]==v){
+return v;
+return findparent(parent[v],parent);
+}
+}
+void minmst(Edge *input,int v,int e){
+//sort based on weight
+sort(input,input+e,compare);
+Edge *output=new Edge[v-1];
+int parent=new int[v];
+for(int i=0;i<v;i++){
+parent[i]=i;
+}
+int count=0;
+int i=0;
+while(count!=v-1){
+ int currentedge[i]=input[i];
+//checking if cycle there or not
+int sourceparent=findparent(currentedge.source,parent);
+int destparent=findparent(currentedge,dest,parent):
+if(sourceparent!=destparent){
+output[count]=currentedge;
+count++;
+parent[sourceparent]=destparent;
+}
+}
+i++;
+for(i=0;i<v;i++){
+cout<<output[i].printedge;
+}
+}
+
+
+
+    
