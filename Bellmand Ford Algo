@@ -1,0 +1,40 @@
+//Belmand Ford Algo-used to detect whether negative cycle exists or not.Applicable for negative weights.
+
+vector<int>bellmand(int m,int n,int src,vector<vector<int>> &edges) {
+   vector<int> dist(n+1,1e9);
+//traverse through n-1 relax
+for(int i=0;i<n;i++){
+//traverse on edge list
+for(int j=0;j<m;j++){
+int u=edge[j][0]
+int v=edge[j][1];
+int wt=edge[j][2];
+}
+if(dist[u]!= 1e9 &&((dist[u]+wt<dist[v])){
+dist[v]=dist[u]+wt;
+}
+return dist;
+}
+}//checking -ve cycle
+bool flag=0;
+   for(int j=0;j<m;j++){
+          int u=edges[j][0];
+          int v=edges[j][1];
+          int wt=edges[j][2];
+          if(dist[u]!= 1e9 && ((dist[u]+wt)<dist[v])){
+             flag=1;
+           }
+       }
+
+       if(flag==0){
+
+        return dist[dest];
+
+
+       }
+       return -1;
+}
+}
+
+
+
