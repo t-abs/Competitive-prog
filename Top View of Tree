@@ -1,0 +1,48 @@
+1.Make an ordered map for storing the node values and its corresponding horizontal distance by using a scale
+2.Push the map data in the queue data structure
+3.The corresponding horizontal dist of every node should be printed only once and then use map iterator.
+
+ 
+
+ vector<int> topView(Node *root)
+    {
+        vector<int> ans;
+        
+        if(root == NULL) return ans;
+        
+        map<int, int> m;
+        queue<pair<Node*, int>> q;
+        
+        q.push(make_pair(root, 0));
+        
+        while(!q.empty()) {
+            pair<Node*, int> temp = q.front();
+            q.pop();
+            
+            Node* t = temp.first;
+            int hd = temp.second;
+            
+            if(m.find(hd) == m.end()) {
+                m[hd] = t->data;
+            }
+            
+            if(t->left) {
+                q.push(make_pair(t->left, hd-1));
+            }
+            
+            if(t->right) {
+                q.push(make_pair(t->right, hd+1));
+            }
+        }
+        
+        for(auto i: m) {
+            ans.push_back(i.second);
+        }
+        
+        return ans;
+    }
+
+};
+
+
+
