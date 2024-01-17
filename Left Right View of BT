@@ -1,0 +1,44 @@
+void solve(Node* root,vector<int>&ans,level){
+//base case
+if(root==NULL){
+return;
+}
+//new level check
+if(level==ans.size()){
+ans.push_back(root->data);
+}
+//level increment for each
+solve(root->left,ans,level+1);
+solve(root->right,ans,level+1);
+}
+vector<int>Leftview(Node* root)
+{
+vector<int>ans;
+solve(root,ans,0);
+return ans;
+}
+
+    void solve(Node* root,vector<int>&ans,int level){
+        if(root==NULL){
+            return;
+        }
+        //check when to go to next level
+        if(level==ans.size()){
+            ans.push_back(root->data);
+        }
+        
+        //increment level
+        solve(root->right,ans,level+1);
+        solve(root->left,ans,level+1);
+    }
+    
+    
+    
+    vector<int> rightView(Node *root)
+    {
+       vector<int>ans;
+       solve(root,ans,0);
+       return ans;
+    }
+};
+
